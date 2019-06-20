@@ -10,6 +10,7 @@ class Rod(object):
     horizontal_rod = ['0','j','k','l','m','n','o','p','q','r']
     # 图片标签模版
     img_template = '{image=bmpfnt/rod/%s.png}'
+    md_template = '![%s](https://raw.githubusercontent.com/gamefang/CountingRod/master/res/%s.png)'
 
     def int_to_rod(self,num):
         '''
@@ -60,8 +61,24 @@ class Rod(object):
             result += self.img_template % (word,'_'+word)[negative]
         return result
 
+    def md_text(self,num=None,rod=None):
+        '''
+        输出筹算代码的markdown标记语言
+        @param num: 整数(优先)
+        @param rod: 筹算代码
+        @return: markdown语言
+        '''
+        if num is not None:
+            rod = self.int_to_rod(num)
+        result = ''
+        negative = (rod.lower() != rod)
+        for word in rod:
+            result += self.md_template % ( self.rod_to_int(word) or self.rod_to_int(word+'0')//10, (word,'_'+word)[negative] )
+        return result
+    
 if __name__ == '__main__':
     rod = Rod()
     print(rod.int_to_rod(2019))
     print(rod.rod_to_int('L0NI'))
-    print(rod.img_text('ARH0'))
+    print(rod.img_text(10086))
+    print(rod.md_text(10086))
