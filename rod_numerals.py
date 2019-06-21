@@ -11,6 +11,28 @@ class Rod(object):
     # 图片标签模版
     img_template = '{image=bmpfnt/rod/%s.png}'
     md_template = '![%s](https://raw.githubusercontent.com/gamefang/CountingRod/master/res/%s.png)'
+    # 筹算形状字典：{ 筹算代码:(纵向筹数量,横向筹数量)... }
+    shape_dic = {
+        '0':(0,0),
+        'a':(1,0),
+        'b':(2,0),
+        'c':(3,0),
+        'd':(4,0),
+        'e':(5,0),
+        'f':(1,1),
+        'g':(2,1),
+        'h':(3,1),
+        'i':(4,1),
+        'j':(0,1),
+        'k':(0,2),
+        'l':(0,3),
+        'm':(0,4),
+        'n':(0,5),
+        'o':(1,1),
+        'p':(1,2),
+        'q':(1,3),
+        'r':(1,4),
+    }
 
     def int_to_rod(self,num):
         '''
@@ -75,10 +97,20 @@ class Rod(object):
         for word in rod:
             result += self.md_template % ( self.rod_to_int(word) or self.rod_to_int(word+'0')//10, (word,'_'+word)[negative] )
         return result
-    
+
+    def rod_to_shape(self,rod):
+        '''
+        筹算代码转化为形状模拟
+        @param rod: 筹算代码
+        @return: [ 是否正数, (第1字纵筹数,第1字横筹数), (第2字纵筹数,第2字横筹数)... ]
+        '''
+        result = [ self.shape_dic[word] for word in rod.lower() ]
+        return [rod.lower() == rod] + result
+
 if __name__ == '__main__':
     rod = Rod()
     print(rod.int_to_rod(2019))
     print(rod.rod_to_int('L0NI'))
     print(rod.img_text(10086))
     print(rod.md_text(10086))
+    print(rod.rod_to_shape('mi'))

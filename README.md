@@ -34,10 +34,11 @@
 ## 筹算计数法
 
 - 有两套符号系统，偶数位使用纵向，奇数位使用横向。
-- 数字0使用位数留空处理，武则天时期开始使用符号`〇`。
+- 数字0使用位数留空处理，南宋时期开始使用符号`〇`，同时简化459的筹码。
 - 正数使用红色筹，负数使用黑色筹。
 - 加减法自上而下，结果在左方。
 - 乘除法乘数在上，被乘数在下，积在中间。
+- 分数上下表示，无分数线。
 
 ## 示例
 
@@ -60,6 +61,11 @@
 >> ![1](https://raw.githubusercontent.com/gamefang/CountingRod/master/res/a.png)![5](https://raw.githubusercontent.com/gamefang/CountingRod/master/res/n.png)![6](https://raw.githubusercontent.com/gamefang/CountingRod/master/res/f.png)
 >
 > ![1](https://raw.githubusercontent.com/gamefang/CountingRod/master/res/j.png)![3](https://raw.githubusercontent.com/gamefang/CountingRod/master/res/c.png)
+
+- 分数：`2/3`
+> ![2](https://raw.githubusercontent.com/gamefang/CountingRod/master/res/b.png)
+>
+> ![3](https://raw.githubusercontent.com/gamefang/CountingRod/master/res/c.png)
 
 - 关键数字对照表
 
